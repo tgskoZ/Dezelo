@@ -4,3 +4,6 @@ modlist.txt
 scripts/
 .github/
 *.mrpack
+.gitignore
+.packwizignore
+dist/
