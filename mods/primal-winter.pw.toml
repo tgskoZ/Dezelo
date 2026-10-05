@@ -1,0 +1,13 @@
+name = "Primal Winter"
+filename = "primalwinter-neoforge-1.21.1-6.0.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/BOwymOaY/versions/jYFhhrxD/primalwinter-neoforge-1.21.1-6.0.2.jar"
+hash-format = "sha512"
+hash = "c239766abf51bdf73f967e425286bd606d4b197835a08b725c00cfff8095a67d714ad17492d7207284f711b666743f011da1c513b7398339bdad44c4c60284c4"
+
+[update]
+[update.modrinth]
+mod-id = "BOwymOaY"
+version = "jYFhhrxD"
