@@ -1,0 +1,40 @@
+# Dezelo: Eternal Frost — список проектов Modrinth (slug), по одному на строку.
+# Обязательные зависимости packwiz подтягивает сам.
+# Строки с "#" игнорируются. Чтобы убрать мод — закомментируй строку и удали mods/<slug>.pw.toml.
+
+# --- Вечная зима и холод ---
+primal-winter            # все биомы заморожены, вечный снегопад
+cold-sweat               # температура тела, обморожение, обогрев, утеплённая одежда
+particle-rain            # плотные частицы снега и метели
+snow-real-magic          # снег слоями, засыпает траву, заборы, ступени
+
+# --- Выживание и быт в мороз ---
+comforts                 # спальники для ночёвок в походе
+farmers-delight          # горячая еда: супы и рагу
+supplementaries          # фонари, жаровни и прочий уют
+sophisticated-backpacks  # рюкзаки для экспедиций
+
+# --- Опасности и исследование ---
+mowzies-mobs             # Frostmaw, ледяной босс
+yungs-better-dungeons
+yungs-better-mineshafts
+yungs-better-strongholds
+terralith                # больше рельефа: горы, ледники
+
+# --- Интерфейс и QoL ---
+jei
+jade
+appleskin
+mouse-tweaks
+xaeros-minimap
+
+# --- Производительность ---
+sodium
+iris
+ferrite-core
+modernfix
+entityculling
+immediatelyfast
+
+# --- Шейдеры ---
+complementary-reimagined

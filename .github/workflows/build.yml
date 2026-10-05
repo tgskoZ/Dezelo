@@ -1,0 +1,51 @@
+name: Build modpack
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+    paths-ignore: ["README.md"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Install packwiz
+        run: |
+          go install github.com/packwiz/packwiz@latest
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Build .mrpack
+        run: scripts/build.sh
+
+      - name: Commit resolved mod metadata
+        if: github.ref_type == 'branch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pack.toml index.toml mods resourcepacks shaderpacks 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Pin resolved mod versions [skip ci]"
+            git push
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mrpack
+          path: dist/*.mrpack
+
+      - name: Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.mrpack
