@@ -39,13 +39,23 @@ jobs:
             git push
           fi
 
+      - name: Build zip with mod jars
+        run: python3 scripts/full-zip.py dist/*.mrpack "dist/$(basename dist/*.mrpack .mrpack)-mods.zip"
+
       - uses: actions/upload-artifact@v4
         with:
           name: mrpack
           path: dist/*.mrpack
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mods-zip
+          path: dist/*-mods.zip
+
       - name: Release
         if: github.ref_type == 'tag'
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*.mrpack
+          files: |
+            dist/*.mrpack
+            dist/*-mods.zip
